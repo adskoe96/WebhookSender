@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- site writed by @adskoe96, contact me: https://adskoe96.github.io/links -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook sender 0.01</title>
+  </head>
+  <body>
+    <p>Webhook url:<Br>
+        <textarea id="url" cols="20" rows="3"></textarea></p>
+    <p>Comment:<Br>
+        <textarea id="comment" cols="40" rows="3"></textarea></p>
+    <button onclick="sendMessage()">Send</button>
+  </body>
+
+  <script>
+    function sendMessage() {
+        var url = document.getElementById("url").value;
+        var text = document.getElementById("comment").value;
+      var request = new XMLHttpRequest();
+      request.open("POST", url);
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        content: text
+      }
+
+      request.send(JSON.stringify(params));
+    }
+  </script>
+</html>
