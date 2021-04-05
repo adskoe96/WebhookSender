@@ -2,21 +2,40 @@
 <!-- site writed by @adskoe96, contact me: https://adskoe96.github.io/links -->
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webhook sender 0.01</title>
+    <style>
+        body{
+    background-color: #111111; /* Цвет фона веб-страницы */
+   }
+    </style>
   </head>
   <body>
-    <p>Webhook url:<Br>
-        <textarea id="url" cols="20" rows="3"></textarea></p>
-    <p>Comment:<Br>
-        <textarea id="comment" cols="40" rows="3"></textarea></p>
-    <button onclick="sendMessage()">Send</button>
+      <center>
+        <div id="shadowBox">
+            <h3 class="rainbow rainbow_text_animated">Webhook Sender</h3>
+        </div>
+        <br/>
+    <p style="color:rgb(163, 163, 163);">Webhook url:<Br>
+        <input id="webhookurl" type="password" style="background-color: #111111; color: #969696; width: 500pt;"></p>
+        <br/>
+    <p style="color:rgb(163, 163, 163);">Content:<Br>
+        <textarea style="background-color: #111111; color: #969696;" id="comment" cols="40" rows="3"></textarea></p>
+        <br/>
+        <br/>
+        <button onclick="clearContents(comment)" class="button button5">Clear</button>
+        <br/>
+        <button onclick="sendMessage()" class="button button5">Send webhook</button>
+        <br/>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/adskoe96/WebhookSender">Source code</a>
+</center>
   </body>
 
   <script>
     function sendMessage() {
-        var url = document.getElementById("url").value;
+        var url = document.getElementById("webhookurl").value;
         var text = document.getElementById("comment").value;
       var request = new XMLHttpRequest();
       request.open("POST", url);
@@ -29,5 +48,8 @@
 
       request.send(JSON.stringify(params));
     }
+    function clearContents(element) {
+  element.value = '';
+}
   </script>
 </html>
