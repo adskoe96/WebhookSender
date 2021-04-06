@@ -13,7 +13,7 @@
    }
     </style>
   </head>
-  <body>
+  <body>   
       <center>
         <h3 class="rainbow rainbow_text_animated">Webhook Sender</h3>
         <br/>
@@ -23,10 +23,10 @@
     <p style="color:rgb(163, 163, 163);">Content:<Br>
         <textarea style="background-color: #111111; color: #969696;" id="comment" cols="40" rows="3"></textarea></p>
         <br/>
-        <button onclick="clearContents(comment)" class="glow-on-hover">Clear</button>
+        <button onclick="clearContents(comment);" class="glow-on-hover">Clear</button>
         <br/>
         <br/>
-        <button onclick="sendMessage()" class="glow-on-hover">Send webhook</button>
+        <button onclick="sendMessage();" class="glow-on-hover">Send</button>
         <br/>
         <br/>
         <br/>
@@ -58,5 +58,23 @@
     function clearContents(element) {
   element.value = '';
 }
+  var animateButton = function(e) {
+
+e.preventDefault;
+//reset animation
+e.target.classList.remove('animate');
+
+e.target.classList.add('animate');
+setTimeout(function(){
+  e.target.classList.remove('animate');
+},700);
+};
+
+var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+bubblyButtons[i].addEventListener('click', animateButton, false);
+}
   </script>
+  <script type="text/javascript" src="js/snow.js"></script>
 </html>
